@@ -1,6 +1,6 @@
 import { Node } from "./node.js";
 
-class Tree {
+export class Tree {
   constructor(tableData) {
     this.root = this.#buildTree(tableData);
   }
