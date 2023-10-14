@@ -4,10 +4,10 @@ export class TableData {
   }
 
   getLowerPosition() {
-    return this.data.slice(1);
+    return new TableData(this.data.slice(1));
   }
 
   getRightPosition() {
-    return this.data.map((row) => row.slice(1));
+    return new TableData(this.data.map((row) => row.slice(1)));
   }
 }

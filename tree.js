@@ -6,9 +6,9 @@ export class Tree {
   }
 
   #buildTree(tableData) {
-    if (!tableData || !tableData[0]) return null;
+    if (!tableData.data.length || !tableData.data[0].length) return null;
 
-    const node = new Node(tableData[0][0]);
+    const node = new Node(tableData.data[0][0]);
     node.left = this.#buildTree(tableData.getLowerPosition());
     node.right = this.#buildTree(tableData.getRightPosition());
 
