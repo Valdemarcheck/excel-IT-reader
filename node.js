@@ -3,6 +3,14 @@ export class Node {
     this.value = value;
   }
 
+  get left() {
+    return this._left;
+  }
+
+  get right() {
+    return this._right;
+  }
+
   set left(value) {
     this._left = value;
   }
