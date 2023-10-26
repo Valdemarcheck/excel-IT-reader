@@ -1,9 +1,20 @@
 import { TableData } from "./tableData.js";
-import { Tree } from "./tree.js";
+import { DependantTableDataSumsArray } from "./tableDataSumsArray.js";
 import readTableAsync from "./xlsx-reader.js";
 
 const data = await readTableAsync("./table.xlsx");
-const tableDataObj = new TableData(data);
-const tree = new Tree(tableDataObj);
-console.log(tree.getMax());
-console.log(tree.getMin());
+
+const maxSumsObj = new DependantTableDataSumsArray({
+  tableDataArray: data,
+  isMin: false,
+});
+const minSumsObj = new DependantTableDataSumsArray({
+  tableDataArray: data,
+  isMin: true,
+});
+
+const tableDataMaxSumsObj = new TableData(maxSumsObj.data);
+const tableDataMinSumsObj = new TableData(minSumsObj.data);
+
+console.log("Max: " + tableDataMaxSumsObj.last);
+console.log("Min: " + tableDataMinSumsObj.last);
